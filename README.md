@@ -18,7 +18,7 @@ This repository contains a full-stack application for managing a bookstore. The 
 
 2. **Configure Environment Variables:**
 
-Open the .env file and update the following values:
+   Open the .env file and update the following values:
   - DB_USER: Your PostgreSQL username
   - DB_PASSWORD: Your PostgreSQL password
   - DB_NAME: The name of the database you want to use
