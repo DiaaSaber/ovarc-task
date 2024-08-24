@@ -4,7 +4,7 @@ This repository contains a full-stack application for managing a bookstore. The 
 
 ## Prerequisites
 
-- Node.js (v14.x or later)
+- Node.js v18.12.1
 - PostgreSQL
 - A Linux-based operating system is recommended, as the project was developed and tested in such an environment.
 
@@ -70,6 +70,5 @@ Open the .env file and update the following values:
 #### Notes
 
   - Ensure that PostgreSQL is running and accessible with the credentials you provide in the .env file.
-  - The project was developed on a Linux-based operating system.
 
 
