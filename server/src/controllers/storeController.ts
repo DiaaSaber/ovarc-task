@@ -1,6 +1,8 @@
 // src/controllers/storeController.ts
 import { Request, Response } from "express";
 import * as storeService from "../services/storeService";
+import path from "path";
+import { processCsvAndPopulateDatabase } from "../services/csvService";
 
 // GET /stores
 export const getAllStores = async (req: Request, res: Response) => {
@@ -62,17 +64,36 @@ export const deleteStore = async (req: Request, res: Response) => {
 
 // POST /stores/:storeId/books/:bookId
 export const associateBookWithStore = async (req: Request, res: Response) => {
-  const { storeId, bookId, price, soldOut } = req.params;
+  const { storeId, bookId, price, sold_out } = req.params;
   try {
     const storeBook = await storeService.associateBookWithStore(
       parseInt(storeId),
       parseInt(bookId),
       parseFloat(price),
-      soldOut === "true"
+      sold_out === "true"
     );
     res
       .status(201)
       .json({ message: "Book associated with store successfully", storeBook });
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const uploadCsv = async (req: Request, res: Response) => {
+  try {
+    const filePath = path.resolve(
+      __dirname,
+      "../../Sample Data for Bookstore - Sheet1.csv"
+    );
+    if (!filePath) {
+      return res.status(400).json({ message: "No file uploaded" });
+    }
+
+    await processCsvAndPopulateDatabase(filePath);
+    res
+      .status(200)
+      .json({ message: "Database populated successfully from CSV file" });
   } catch (error: any) {
     res.status(500).json({ message: error.message });
   }

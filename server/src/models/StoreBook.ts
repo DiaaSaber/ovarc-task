@@ -7,7 +7,7 @@ interface StoreBookAttributes {
   store_id: number;
   book_id: number;
   price: number;
-  soldOut: boolean;
+  sold_out: boolean;
 }
 
 interface StoreBookCreationAttributes
@@ -20,7 +20,7 @@ export class StoreBook
   public store_id!: number;
   public book_id!: number;
   public price!: number;
-  public soldOut!: boolean;
+  public sold_out!: boolean;
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -42,14 +42,14 @@ StoreBook.init(
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
-    soldOut: {
+    sold_out: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
   },
   {
     sequelize,
-    tableName: "StoreBooks",
+    tableName: "stores_books",
     timestamps: true,
   }
 );

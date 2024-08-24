@@ -44,7 +44,7 @@ export const associateBookWithStore = async (
   storeId: number,
   bookId: number,
   price: number,
-  soldOut: boolean
+  sold_out: boolean
 ) => {
   const store = await Store.findByPk(storeId);
   if (!store) throw new Error("Store not found");
@@ -63,6 +63,6 @@ export const associateBookWithStore = async (
     store_id: store.id,
     book_id: book.id,
     price,
-    soldOut,
+    sold_out,
   });
 };
