@@ -1,4 +1,3 @@
-// src/routes/bookRoutes.ts
 import { Router } from "express";
 import {
   getAllBooks,

@@ -1,4 +1,3 @@
-// src/routes/authorRoutes.ts
 import { Router } from "express";
 import {
   getAllAuthors,

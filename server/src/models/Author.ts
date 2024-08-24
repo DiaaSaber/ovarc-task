@@ -15,7 +15,6 @@ export class Author extends Model<AuthorAttributes, AuthorCreationAttributes> im
   public id!: number;
   public name!: string;
 
-  // Declare associations
   public getBooks!: HasManyGetAssociationsMixin<Book>;
   public addBook!: HasManyAddAssociationMixin<Book, number>;
   public addBooks!: HasManyAddAssociationsMixin<Book, number>;

@@ -1,4 +1,3 @@
-// src/routes/storeRoutes.ts
 import { Router } from "express";
 import {
   getAllStores,

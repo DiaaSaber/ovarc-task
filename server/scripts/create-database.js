@@ -27,7 +27,6 @@ client.connect((err) => {
       }
 
       if (result.rows.length === 0) {
-        // Database does not exist, create it
         client.query(`CREATE DATABASE "${dbName}"`, (err, result) => {
           if (err) {
             console.error("Error creating database", err);

@@ -20,7 +20,6 @@ export class Book
   public pages?: number;
   public author_id?: number;
 
-  // Associations
   public readonly author?: Author;
 
   public readonly createdAt!: Date;
