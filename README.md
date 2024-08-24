@@ -67,8 +67,4 @@ Open the .env file and update the following values:
     - The "Create Store" button is fully functional, allowing you to add new stores.
     - The "Store ID" column supports sorting in ascending, descending, and default orders.
 
-#### Notes
-
-  - Ensure that PostgreSQL is running and accessible with the credentials you provide in the .env file.
-
 
