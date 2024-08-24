@@ -1,8 +1,34 @@
 import { Book } from "../models/Book";
 import { Author } from "../models/Author";
+import { Store } from "../models/Store";
 
 export const findAllBooks = async () => {
-  return Book.findAll({ include: Author });
+  const books = await Book.findAll({
+    include: [
+      {
+        model: Author,
+        attributes: ["id", "name"],
+      },
+      {
+        model: Store,
+        through: {
+          attributes: ["price"],
+        },
+        attributes: ["id", "name"],
+      },
+    ],
+  });
+
+  return books.map((book) => ({
+    id: book.id,
+    name: book.name,
+    pages: book.pages,
+    author: book.Author?.name,
+    stores: book.Stores?.map((store) => ({
+      name: store.name,
+      price: store.StoreBook?.price,
+    })),
+  }));
 };
 
 export const findBookById = async (id: number) => {

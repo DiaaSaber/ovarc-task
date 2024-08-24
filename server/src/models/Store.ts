@@ -11,6 +11,7 @@ import {
 } from "sequelize";
 import { sequelize } from "./index";
 import { Book } from "./Book";
+import { StoreBook } from "./StoreBook";
 
 interface StoreAttributes {
   id: number;
@@ -33,6 +34,8 @@ export class Store
   public addBooks!: BelongsToManyAddAssociationsMixin<Book, number>;
   public hasBook!: BelongsToManyHasAssociationMixin<Book, number>;
   public countBooks!: BelongsToManyCountAssociationsMixin;
+
+  public readonly StoreBook?: StoreBook;
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;

@@ -1,6 +1,12 @@
-import { Model, DataTypes, Optional } from "sequelize";
+import {
+  Model,
+  DataTypes,
+  Optional,
+  BelongsToManyGetAssociationsMixin,
+} from "sequelize";
 import { sequelize } from "./index";
 import { Author } from "./Author";
+import { Store } from "./Store";
 
 interface BookAttributes {
   id: number;
@@ -20,7 +26,11 @@ export class Book
   public pages?: number;
   public author_id?: number;
 
-  public readonly author?: Author;
+  public readonly Author?: Author;
+
+  public getStores!: BelongsToManyGetAssociationsMixin<Store>;
+
+  public readonly Stores?: Store[];
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
