@@ -1,4 +1,3 @@
-// src/controllers/storeController.ts
 import { Request, Response } from "express";
 import * as storeService from "../services/storeService";
 import path from "path";
