@@ -44,18 +44,17 @@ Open the .env file and update the following values:
 ### 2. Setting Up the Client
 
 1. **Navigate to the Client Directory:**
-
-  ```bash
-  cd client
+    ```bash
+    cd client
 
 2. **Install Client Dependencies:**
-  ```bash
-  npm install
+    ```bash
+    npm install
 
 3. **Run the Client:**
   - Start the client in development mode:
-  ```bash
-  npm run dev
+    ```bash
+    npm run dev
   - The client will start on port `8000`.
 
 ### 3. Application Overview
